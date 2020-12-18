@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 
-git clone --depth 1 -j8 https://github.com/Accipiter7/AnyKernel3 -b mido /root/project/ak3
+git clone --depth 1 -j8 https://github.com/Accipiter7/AnyKernel3 -b mido /root/build/ak3
 
 # Set Build Env
 
-IMG=/root/project/c/out/arch/arm64/boot/Image.gz-dtb
+IMG=/root/build/c/out/arch/arm64/boot/Image.gz-dtb
 
-TC_VER=$("/root/project/pclang/bin/clang" --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
+TC_VER=$("/root/build/pclang/bin/clang" --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
 
 BDT=$(date +"%h-%d-%H:%M")
 
 export ARCH=arm64
 
-export CLANG_PATH=/root/project/pclang/bin
+export CLANG_PATH=/root/build/pclang/bin
 
 export PATH=${CLANG_PATH}:${PATH}
 
@@ -44,7 +44,7 @@ function sendZip()
 
 {
 
- cd /root/project/ak3 || exit
+ cd /root/build/ak3 || exit
 
  ZIP=$(echo *.zip)
 
@@ -56,9 +56,9 @@ function zipper()
 
 {
 
- cp "${IMG}" /root/project/ak3
+ cp "${IMG}" /root/build/ak3
 
- cd /root/project/ak3 || exit 
+ cd /root/build/ak3 || exit 
 
  make -j16
 
@@ -102,11 +102,11 @@ function compile()
 
 {
 
-		cd /root/project/c || exit	    START=$(date +"%s")
+		cd /root/build/c || exit	    START=$(date +"%s")
 
 	    make ARCH=arm64 mido_defconfig O=out 2> /build.log
 
-	    PATH="/root/project/pclang/bin/:${PATH}" \
+	    PATH="/root/build/pclang/bin/:${PATH}" \
 
 		make O=out -j16 2>> /build.log \
 
