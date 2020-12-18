@@ -6,10 +6,10 @@ jobs:
     steps:
       - run:
           name: Cloning Repo
-          command:  git clone  --depth 1 https://github.com/Accipiter7/kernel_xiaomi_msm8953-4.9 c
+          command:  git clone  --depth 1 https://github.com/Accipiter7/kernel_xiaomi_msm8953-4.9 /root/build/c
       - run:  
           name: Compilation
-          command: bash /root/project/c/build.sh
+          command: bash /root/build/c/build.sh
 workflows:
   version: 2.1
   cooking:
