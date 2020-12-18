@@ -16,6 +16,8 @@ export CLANG_PATH=/root/build/pclang/bin
 
 export PATH=${CLANG_PATH}:${PATH}
 export CROSS_COMPILE_ARM32=${CLANG_PATH}/arm-linux-gnueabi-
+export CC=${CLANG_PATH}/clang 
+export CROSS_COMPILE=${CLANG_PATH}/aarch64-linux-gnu- 
 
 function sendInfo() 
 
