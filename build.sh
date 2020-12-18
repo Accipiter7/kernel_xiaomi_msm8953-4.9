@@ -44,7 +44,7 @@ function sendZip()
 
 {
 
- cd /root/build/ak3 || exit
+ cd /root/build/ak3
 
  ZIP=$(echo *.zip)
 
@@ -58,7 +58,7 @@ function zipper()
 
  cp "${IMG}" /root/build/ak3
 
- cd /root/build/ak3 || exit 
+ cd /root/build/ak3
 
  make -j16
 
@@ -102,8 +102,8 @@ function compile()
 
 {
 
-		cd /root/build/c || exit	    START=$(date +"%s")
-
+            cd /root/build/c	    
+            START=$(date +"%s")
 	    make ARCH=arm64 mido_defconfig O=out 2> /build.log
 
 	    PATH="/root/build/pclang/bin/:${PATH}" \
