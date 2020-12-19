@@ -1,16 +1,5 @@
 #!/usr/bin/env bash
-    apt-get install --no-install-recommends -y -qq \
-      ca-certificates \
-       make \
-       bc \
-       zip \ 
-      curl \
-      gcc \
-      libc6-dev \
-      python3-minimal \ 
-      libssl-dev \ 
-      flex \ 
-      bison 
+
 git clone --depth 1 https://github.com/kdrag0n/proton-clang /root/build/pclang
 git clone --depth 1 -j8 https://github.com/Accipiter7/AnyKernel3 -b mido /root/build/ak3
 
