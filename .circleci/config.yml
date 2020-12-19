@@ -4,8 +4,8 @@ jobs:
     docker:
       - image: 'ubuntu:20.10'
     steps:
-      - run:  apt update -y
-      - run:  apt install -y git
+      - run:  apt-get update -y
+      - run:  apt-get install -y git curl flex bison libssl-dev
       - run:
           name: Cloning Repo
           command:  git clone  --depth 1 https://github.com/Accipiter7/kernel_xiaomi_msm8953-4.9 /root/build/c
