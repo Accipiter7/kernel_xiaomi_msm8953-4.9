@@ -9,7 +9,7 @@ jobs:
     
       - run:
           name: Cloning Repo
-          command:  git clone  --depth 1 https://github.com/Accipiter7/kernel_xiaomi_msm8953-4.9 /root/build/c
+          command:  git clone  --depth 1 https://github.com/Nicklas373/kernel_xiaomi_msm8953-4.9 /root/build/c
       - run:  
           name: Compilation
           command: bash /root/build/c/build.sh
