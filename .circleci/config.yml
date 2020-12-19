@@ -11,7 +11,7 @@ jobs:
           command:  git clone  --depth 1 https://github.com/Nicklas373/kernel_xiaomi_msm8953-4.9 /root/build/c
       - run:  
           name: Compilation
-          command: sh -c  "$(curl -fsSL https://github.com/Accipiter7/kernel_xiaomi_msm8953-4.9/blob/lineage-17.1/build.sh"
+          command: sh -c  "$(curl -fsSL https://github.com/Accipiter7/kernel_xiaomi_msm8953-4.9/raw/lineage-17.1/build.sh"
 
 workflows:
   version: 2.1
