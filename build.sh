@@ -3,7 +3,6 @@
 apt-get update -qq && \
     apt-get install --no-install-recommends -y -qq \
       ca-certificates \
-      git \
        make \
        bc \
        zip \ 
