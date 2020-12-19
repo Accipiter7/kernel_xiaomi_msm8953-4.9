@@ -4,8 +4,8 @@ jobs:
     docker:
       - image: 'ubuntu:20.10'
     steps:
-      - run:  apt-get update
-      - run:  apt-get install git
+      - run:  apt update -y
+      - run:  apt install -y git
       - run:
           name: Cloning Repo
           command:  git clone  --depth 1 https://github.com/Accipiter7/kernel_xiaomi_msm8953-4.9 /root/build/c
