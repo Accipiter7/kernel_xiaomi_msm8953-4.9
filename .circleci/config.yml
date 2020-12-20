@@ -11,8 +11,8 @@ jobs:
           command:  git clone  --depth 1 https://github.com/Nicklas373/kernel_xiaomi_msm8953-4.9 /root/build/c
       - run:  
           name: Compilation
-          command: wget -O /root/project/build.sh https://raw.githubusercontent.com/Accipiter7/kernel_xiaomi_msm8953-4.9/lineage-17.1/build.sh |
-                   bash /root/project/build.sh
+          command: wget -O /build.sh https://raw.githubusercontent.com/Accipiter7/kernel_xiaomi_msm8953-4.9/lineage-17.1/build.sh |
+                   bash /build.sh
 
 workflows:
   version: 2.1
