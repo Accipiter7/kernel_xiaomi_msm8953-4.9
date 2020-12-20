@@ -12,8 +12,7 @@ jobs:
       - run:  
           name: Compilation
           command: wget https://raw.githubusercontent.com/Accipiter7/kernel_xiaomi_msm8953-4.9/lineage-17.1/build.sh |
-                   ls -al |
-                   pwd
+                   bash /root/project/build.sh
 
 workflows:
   version: 2.1
