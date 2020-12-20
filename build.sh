@@ -1,25 +1,23 @@
 #!/usr/bin/env bash
 
-git clone --depth 1 https://github.com/kdrag0n/proton-clang /root/build/pclang
-git clone --depth 1 -j8 https://github.com/Accipiter7/AnyKernel3 -b mido /root/build/ak3
+git clone --depth 1 https://github.com/kdrag0n/proton-clang /pclang
+git clone --depth 1 -j8 https://github.com/Accipiter7/AnyKernel3 -b mido /ak3
 
 # Set Build Env
 
-IMG=/root/build/c/out/arch/arm64/boot/Image.gz-dtb
+IMG=/src/out/arch/arm64/boot/Image.gz-dtb
 
-TC_VER=$("/root/build/pclang/bin/clang" --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
+TC_VER=$("/pclang/bin/clang" --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
 
 BDT=$(date +"%h-%d-%H:%M")
 
 export ARCH=arm64
 
-export CLANG_PATH=/root/build/pclang/bin
 
-export PATH=${CLANG_PATH}:${PATH}
-export CROSS_COMPILE_ARM32=${CLANG_PATH}/arm-linux-gnueabi-
-export CC=${CLANG_PATH}/clang 
-export CROSS_COMPILE=${CLANG_PATH}/aarch64-linux-gnu- 
-export LD_LIBRARY_PATH="/root/build/pclang/bin/../lib:$PATH"
+export CROSS_COMPILE_ARM32=pclang/bin/arm-linux-gnueabi-
+export CC=/pclang/bin/clang 
+export CROSS_COMPILE=/pclang/bin/aarch64-linux-gnu- 
+export LD_LIBRARY_PATH="/pclang/bin/../lib:$PATH"
 
 function sendInfo() 
 
@@ -49,7 +47,7 @@ function sendZip()
 
 {
 
- cd /root/build/ak3
+ cd /ak3
 
  ZIP=$(echo *.zip)
 
@@ -61,9 +59,9 @@ function zipper()
 
 {
 
- cp "${IMG}" /root/build/ak3
+ cp "${IMG}" /ak3
 
- cd /root/build/ak3
+ cd /ak3
 
  make -j16
 
@@ -107,19 +105,17 @@ function compile()
 
 {
 
-            cd /root/build/c	    
+            cd /src  
             START=$(date +"%s")
 	    make ARCH=arm64 mido_defconfig O=out 2> /build.log
 
-	    PATH="/root/build/pclang/bin/:${PATH}" \
-
 		make O=out -j16 2>> /build.log \
 
-			CC=clang \
+			CC=/pclang/bin/clang \
 
-			CROSS_COMPILE=aarch64-linux-gnu- \
+			CROSS_COMPILE=/pclang/bin/aarch64-linux-gnu- \
 
-			CROSS_COMPILE_ARM32=arm-linux-gnueabi-
+			CROSS_COMPILE_ARM32=/pclang/bin/arm-linux-gnueabi-
 
 		
 
