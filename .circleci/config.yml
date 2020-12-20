@@ -8,7 +8,7 @@ jobs:
       - run:  apt-get install -y git curl flex bison libssl-dev ca-certificates make bc zip gcc libc6-dev python3-minimal wget
       - run:
           name: Cloning Repo
-          command:  git clone  --depth 1 https://github.com/Nicklas373/kernel_xiaomi_msm8953-4.9 /src
+          command:  git clone  --depth 1 https://github.com/Accipiter7/Alpha-1/ -b thy /src
       - run: wget -O /build.sh https://raw.githubusercontent.com/Accipiter7/kernel_xiaomi_msm8953-4.9/lineage-17.1/build.sh
       - run: bash /build.sh
 
