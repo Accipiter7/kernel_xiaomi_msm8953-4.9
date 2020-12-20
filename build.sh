@@ -13,10 +13,9 @@ BDT=$(date +"%h-%d-%H:%M")
 
 export ARCH=arm64
 
-
-export CROSS_COMPILE_ARM32=pclang/bin/arm-linux-gnueabi-
 export CC=/pclang/bin/clang 
 export CROSS_COMPILE=/pclang/bin/aarch64-linux-gnu- 
+export CROSS_COMPILE_ARM32=pclang/bin/arm-linux-gnueabi-
 export LD_LIBRARY_PATH="/pclang/bin/../lib:$PATH"
 
 function sendInfo() 
